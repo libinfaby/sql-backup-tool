@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\SQL Backup Tool.csproj": {}
+    "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\SQL Backup Tool.csproj": {}
   },
   "projects": {
-    "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\SQL Backup Tool.csproj": {
+    "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\SQL Backup Tool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\SQL Backup Tool.csproj",
+        "projectUniqueName": "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\SQL Backup Tool.csproj",
         "projectName": "SQL Backup Tool",
-        "projectPath": "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\SQL Backup Tool.csproj",
+        "projectPath": "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\SQL Backup Tool.csproj",
         "packagesPath": "C:\\Users\\libin\\.nuget\\packages\\",
-        "outputPath": "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\obj\\",
+        "outputPath": "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

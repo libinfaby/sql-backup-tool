@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SKkjzDxIjcY=",
+  "dgSpecHash": "7jPJkVLjo5k=",
   "success": true,
-  "projectFilePath": "D:\\PROJECTS\\GRAPES\\SQL Backup Tool\\SQL Backup Tool.csproj",
+  "projectFilePath": "D:\\PROJECTS\\GRAPES\\sql-backup-tool\\SQL Backup Tool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\libin\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\libin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

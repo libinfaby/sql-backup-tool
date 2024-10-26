@@ -69,6 +69,7 @@
             dudHours = new DomainUpDown();
             lstBackupTimes = new ListBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            btnRefreshDB = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -120,7 +121,7 @@
             // 
             // button8
             // 
-            button8.BackColor = SystemColors.Highlight;
+            button8.BackColor = Color.FromArgb(0, 95, 184);
             button8.Cursor = Cursors.Hand;
             button8.FlatAppearance.BorderSize = 0;
             button8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -234,18 +235,18 @@
             // txtServer
             // 
             txtServer.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtServer.Location = new Point(268, 85);
+            txtServer.Location = new Point(125, 85);
             txtServer.Name = "txtServer";
-            txtServer.Size = new Size(341, 29);
+            txtServer.Size = new Size(484, 29);
             txtServer.TabIndex = 10;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 12F);
             textBox2.ForeColor = Color.FromArgb(64, 64, 64);
-            textBox2.Location = new Point(268, 125);
+            textBox2.Location = new Point(286, 125);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(341, 29);
+            textBox2.Size = new Size(323, 29);
             textBox2.TabIndex = 11;
             // 
             // txtBackupLocation1
@@ -301,7 +302,7 @@
             // 
             // button2
             // 
-            button2.BackColor = SystemColors.Highlight;
+            button2.BackColor = Color.FromArgb(0, 95, 184);
             button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderSize = 0;
             button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -319,7 +320,7 @@
             // 
             // btnAddTime
             // 
-            btnAddTime.BackColor = SystemColors.Highlight;
+            btnAddTime.BackColor = Color.FromArgb(0, 95, 184);
             btnAddTime.Cursor = Cursors.Hand;
             btnAddTime.FlatAppearance.BorderSize = 0;
             btnAddTime.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -383,7 +384,7 @@
             cmbDatabases.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDatabases.Font = new Font("Segoe UI", 12F);
             cmbDatabases.FormattingEnabled = true;
-            cmbDatabases.Location = new Point(132, 125);
+            cmbDatabases.Location = new Point(159, 125);
             cmbDatabases.Name = "cmbDatabases";
             cmbDatabases.Size = new Size(121, 29);
             cmbDatabases.TabIndex = 31;
@@ -400,6 +401,7 @@
             btnFolderBrowser1.Text = "...";
             btnFolderBrowser1.TextAlign = ContentAlignment.TopCenter;
             btnFolderBrowser1.UseVisualStyleBackColor = false;
+            btnFolderBrowser1.Click += btnFolderBrowser1_Click;
             // 
             // btnFolderBrowser2
             // 
@@ -412,6 +414,7 @@
             btnFolderBrowser2.Text = "...";
             btnFolderBrowser2.TextAlign = ContentAlignment.TopCenter;
             btnFolderBrowser2.UseVisualStyleBackColor = false;
+            btnFolderBrowser2.Click += btnFolderBrowser2_Click;
             // 
             // btnFolderBrowser3
             // 
@@ -424,6 +427,7 @@
             btnFolderBrowser3.Text = "...";
             btnFolderBrowser3.TextAlign = ContentAlignment.TopCenter;
             btnFolderBrowser3.UseVisualStyleBackColor = false;
+            btnFolderBrowser3.Click += btnFolderBrowser3_Click;
             // 
             // label16
             // 
@@ -574,7 +578,21 @@
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 26);
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // btnRefreshDB
+            // 
+            btnRefreshDB.BackColor = SystemColors.Window;
+            btnRefreshDB.BackgroundImage = Properties.Resources.refresh;
+            btnRefreshDB.BackgroundImageLayout = ImageLayout.Center;
+            btnRefreshDB.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnRefreshDB.Location = new Point(125, 125);
+            btnRefreshDB.Name = "btnRefreshDB";
+            btnRefreshDB.Size = new Size(28, 29);
+            btnRefreshDB.TabIndex = 41;
+            btnRefreshDB.TextAlign = ContentAlignment.TopCenter;
+            btnRefreshDB.UseVisualStyleBackColor = false;
+            btnRefreshDB.Click += btnRefreshDB_Click;
             // 
             // Form1
             // 
@@ -582,6 +600,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 248, 248);
             ClientSize = new Size(951, 364);
+            Controls.Add(btnRefreshDB);
             Controls.Add(lstBackupTimes);
             Controls.Add(dudHours);
             Controls.Add(dudMinutes);
@@ -670,5 +689,6 @@
         private DomainUpDown dudHours;
         private ListBox lstBackupTimes;
         private ContextMenuStrip contextMenuStrip1;
+        private Button btnRefreshDB;
     }
 }

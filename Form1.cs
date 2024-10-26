@@ -75,44 +75,7 @@ namespace SQL_Backup_Tool
 
         private void cmbDatabases_MouseClick(object sender, MouseEventArgs e)
         {
-            // Get the server name from the text box
-            string serverName = txtServer.Text;
-
-            // Connection string to connect to the SQL Server instance (uses Windows Authentication)
-            string connectionString = $"Server={serverName};Database=master;Integrated Security=True;";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    // Open the connection
-                    connection.Open();
-
-                    // SQL query to retrieve all database names
-                    string query = "SELECT name FROM sys.databases";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            // Clear existing items in the ComboBox
-                            cmbDatabases.Items.Clear();
-
-                            // Read each database name and add it to the ComboBox
-                            while (reader.Read())
-                            {
-                                cmbDatabases.Items.Add(reader["name"].ToString());
-                            }
-                        }
-                    }
-                }
-
-                // MessageBox.Show("Databases loaded successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+            
         }
 
         private void btnAddTime_MouseHover(object sender, EventArgs e)
@@ -155,8 +118,50 @@ namespace SQL_Backup_Tool
             // Ensure an item is selected before trying to delete
             if (lstBackupTimes.SelectedIndex != -1)
             {
-
                 lstBackupTimes.Items.RemoveAt(lstBackupTimes.SelectedIndex);
+            }
+        }
+
+        private void btnRefreshDB_Click(object sender, EventArgs e)
+        {
+            // Get the server name from the text box
+            string serverName = txtServer.Text;
+
+            // Connection string to connect to the SQL Server instance (uses Windows Authentication)
+            string connectionString = $"Server={serverName};Database=master;Integrated Security=True;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    connection.Open();
+
+                    // SQL query to retrieve all database names
+                    string query = "SELECT name FROM sys.databases";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            // Clear existing items in the ComboBox
+                            cmbDatabases.Items.Clear();
+
+                            // Read each database name and add it to the ComboBox
+                            while (reader.Read())
+                            {
+                                cmbDatabases.Items.Add(reader["name"].ToString());
+                            }
+                        }
+                    }
+                }
+                //cmbDatabases.Text = serverName;
+
+                // MessageBox.Show("Databases loaded successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
     }
