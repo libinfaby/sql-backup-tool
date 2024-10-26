@@ -1,0 +1,25 @@
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\SQL Backup Tool.exe
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\SQL Backup Tool.deps.json
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\SQL Backup Tool.runtimeconfig.json
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\SQL Backup Tool.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\SQL Backup Tool.pdb
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL_Backup_Tool.Form1.resources
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.GenerateResource.cache
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.AssemblyInfoInputs.cache
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.AssemblyInfo.cs
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.CoreCompileInputs.cache
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\refint\SQL Backup Tool.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.pdb
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.genruntimeconfig.cache
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\ref\SQL Backup Tool.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL_Backup_Tool.Properties.Resources.resources
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.AssemblyReference.cache
+D:\PROJECTS\GRAPES\SQL Backup Tool\obj\Debug\net8.0-windows\SQL Back.FFE3D60E.Up2Date
