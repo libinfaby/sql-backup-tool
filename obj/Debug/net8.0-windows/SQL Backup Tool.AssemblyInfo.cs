@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SQL Backup Tool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32191767d768dcc5787ee035a32023f2bef2c90c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b432ef75dc12b109ff11968056bc09221ba94138")]
 [assembly: System.Reflection.AssemblyProductAttribute("SQL Backup Tool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SQL Backup Tool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

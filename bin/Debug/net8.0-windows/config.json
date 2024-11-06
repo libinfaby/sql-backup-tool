@@ -1,0 +1,24 @@
+{
+  "Server": "LIBIN\\MSSQLSERVER",
+  "Port": 1433,
+  "Databases": [
+    "CoreData",
+    "DataForge",
+    "DataVault"
+  ],
+  "BackupTimes": [
+    "11:46 AM",
+    "12:46 PM"
+  ],
+  "BackupLocations": [
+    {
+      "Location": "C:\\Users\\libin\\LEARN",
+      "Remark": "Learn Remarks"
+    },
+    {
+      "Location": "C:\\Users\\libin\\Documents",
+      "Remark": "Documents Remarks"
+    }
+  ],
+  "Expiry": 5
+}
