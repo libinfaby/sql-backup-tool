@@ -1,6 +1,4 @@
 {
-  "Server": "LIBIN\\MSSQLSERVER",
-  "Port": 1433,
   "Databases": [
     "CoreData",
     "DataForge",
@@ -8,7 +6,10 @@
   ],
   "BackupTimes": [
     "11:46 AM",
-    "12:46 PM"
+    "11:53 AM",
+    "12:46 PM",
+    "07:53 PM",
+    "11:53 PM"
   ],
   "BackupLocations": [
     {

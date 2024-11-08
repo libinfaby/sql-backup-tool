@@ -16,6 +16,7 @@ using Microsoft.Identity.Client;
 using static SQL_Backup_Tool.Form1;
 using Microsoft.SqlServer.Management.Smo.Wmi;
 using System.IO.Compression;
+using System.Globalization;
 
 
 namespace SQL_Backup_Tool
@@ -28,6 +29,8 @@ namespace SQL_Backup_Tool
         ToolStripMenuItem deleteLocationItem = new ToolStripMenuItem("Delete Location");
 
         public string serverName;
+        public List<string> backupLocationsList = new List<string>();
+        public string mainBackupFolderPath;
 
         public Form1()
         {
@@ -113,12 +116,15 @@ namespace SQL_Backup_Tool
                 lstBackupTimes.Items.Add(time);
             }
 
+            OrderBackupTimesInListBox();
+
             // Populate ListView with backup locations
             lstBackupLocations.Items.Clear();
             foreach (var location in settings.BackupLocations)
             {
                 var item = new ListViewItem(new[] { location.Location, location.Remark });
                 lstBackupLocations.Items.Add(item);
+                backupLocationsList.Add(location.Location);
             }
 
             txtExpiry.Text = settings.Expiry.ToString();
@@ -141,6 +147,8 @@ namespace SQL_Backup_Tool
         private void btnAddTime_Click(object sender, EventArgs e)
         {
             lstBackupTimes.Items.Add(dtpBackupTime.Value.ToString("hh:mm tt"));
+            OrderBackupTimesInListBox();
+
         }
 
         private void lstBackupTimes_MouseUp(object sender, MouseEventArgs e)
@@ -534,69 +542,96 @@ namespace SQL_Backup_Tool
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            try
+            foreach (var location in backupLocationsList)
             {
-                // Ensure backup folder exists
-                if (!Directory.Exists(backupFolderPath))
-                    Directory.CreateDirectory(backupFolderPath);
-
-                foreach (string databaseName in databaseNames)
+                if (location.Substring(0, 2) == "\\")
                 {
-                    BackupDatabase(databaseName);
-                }
 
-                // Compress all backups into a single ZIP file
-                string zipFilePath = Path.Combine(backupFolderPath, "AllDatabasesBackup.zip");
-                CompressBackups(zipFilePath);
-
-                MessageBox.Show("Backup and compression completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void BackupDatabase(string databaseName)
-        {
-            // Set up the connection string
-            string connectionString = $"Server={serverInstance},{port};Database={databaseName};Trusted_Connection=True;";
-
-            // Create backup file path
-            string backupFilePath = Path.Combine(backupFolderPath, $"{databaseName}.bak");
-
-            // SQL command for backup
-            string backupQuery = $"BACKUP DATABASE [{databaseName}] TO DISK = '{backupFilePath}' WITH INIT, FORMAT";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(backupQuery, connection);
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-
-            Console.WriteLine($"Backup for database '{databaseName}' completed successfully.");
-        }
-
-        private void CompressBackups(string zipFilePath)
-        {
-            // Ensure no previous zip file exists
-            if (File.Exists(zipFilePath))
-                File.Delete(zipFilePath);
-
-            // Create a zip file with all .bak files in the backup folder
-            using (ZipArchive zip = ZipFile.Open(zipFilePath, ZipArchiveMode.Create))
-            {
-                foreach (string filePath in Directory.GetFiles(backupFolderPath, "*.bak"))
-                {
-                    string fileName = Path.GetFileName(filePath);
-                    zip.CreateEntryFromFile(filePath, fileName);
+                    return;
                 }
             }
 
-            Console.WriteLine("Compression of backups completed successfully.");
+            //try
+            //{
+            //    // Ensure backup folder exists
+            //    if (!Directory.Exists(mainBackupFolderPath))
+            //        Directory.CreateDirectory(backupFolderPath);
+
+            //    foreach (string databaseName in databaseNames)
+            //    {
+            //        BackupDatabase(databaseName);
+            //    }
+
+            //    // Compress all backups into a single ZIP file
+            //    string zipFilePath = Path.Combine(backupFolderPath, "AllDatabasesBackup.zip");
+            //    CompressBackups(zipFilePath);
+
+            //    MessageBox.Show("Backup and compression completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+
+        //private void BackupDatabase(string databaseName)
+        //{
+        //    // Set up the connection string
+        //    string connectionString = $"Server={serverInstance},{port};Database={databaseName};Trusted_Connection=True;";
+
+        //    // Create backup file path
+        //    string backupFilePath = Path.Combine(backupFolderPath, $"{databaseName}.bak");
+
+        //    // SQL command for backup
+        //    string backupQuery = $"BACKUP DATABASE [{databaseName}] TO DISK = '{backupFilePath}' WITH INIT, FORMAT";
+
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        SqlCommand command = new SqlCommand(backupQuery, connection);
+        //        connection.Open();
+        //        command.ExecuteNonQuery();
+        //        connection.Close();
+        //    }
+
+        //    Console.WriteLine($"Backup for database '{databaseName}' completed successfully.");
+        //}
+
+        //private void CompressBackups(string zipFilePath)
+        //{
+        //    // Ensure no previous zip file exists
+        //    if (File.Exists(zipFilePath))
+        //        File.Delete(zipFilePath);
+
+        //    // Create a zip file with all .bak files in the backup folder
+        //    using (ZipArchive zip = ZipFile.Open(zipFilePath, ZipArchiveMode.Create))
+        //    {
+        //        foreach (string filePath in Directory.GetFiles(backupFolderPath, "*.bak"))
+        //        {
+        //            string fileName = Path.GetFileName(filePath);
+        //            zip.CreateEntryFromFile(filePath, fileName);
+        //        }
+        //    }
+
+        //    Console.WriteLine("Compression of backups completed successfully.");
+        //}
+
+        //public static List<string> OrderBackupTimes(List<string> backupTimes)
+        //{
+        //    // Sort times using DateTime.ParseExact for correct time format interpretation
+        //    return backupTimes.OrderBy(time => DateTime.ParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture)).ToList();
+        //}
+
+        private void OrderBackupTimesInListBox()
+        {
+            var backupTimes = lstBackupTimes.Items.Cast<string>().ToList();
+            backupTimes = backupTimes.OrderBy(time => DateTime.ParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture)).ToList();
+            
+            lstBackupTimes.Items.Clear();
+            foreach (var time in backupTimes)
+            {
+                lstBackupTimes.Items.Add(time);
+            }
         }
     }
 }

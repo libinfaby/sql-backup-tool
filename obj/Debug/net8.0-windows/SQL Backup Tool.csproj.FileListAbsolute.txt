@@ -113,3 +113,93 @@ D:\PROJECTS\GRAPES\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x86\nat
 D:\PROJECTS\GRAPES\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
 D:\PROJECTS\GRAPES\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Management.dll
 D:\PROJECTS\GRAPES\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.AssemblyReference.cache
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL_Backup_Tool.Form1.resources
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL_Backup_Tool.Properties.Resources.resources
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.GenerateResource.cache
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.AssemblyInfoInputs.cache
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.AssemblyInfo.cs
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.csproj.CoreCompileInputs.cache
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.sourcelink.json
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.dll
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\refint\SQL Backup Tool.dll
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.pdb
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\SQL Backup Tool.exe
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\SQL Backup Tool.deps.json
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\SQL Backup Tool.runtimeconfig.json
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\SQL Backup Tool.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\SQL Backup Tool.pdb
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Azure.Core.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Azure.Identity.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Assessment.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Assessment.Types.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Data.Tools.Sql.BatchParser.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.ConnectionInfo.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Dmf.Common.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Dmf.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.Assessment.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.Collector.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.CollectorEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.HadrData.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.HadrModel.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.RegisteredServers.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.SqlScriptPublish.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.XEvent.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.XEventDbScoped.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Management.XEventEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.PolicyEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.ServiceBrokerEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Smo.Notebook.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.Smo.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.SmoExtended.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.SqlEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.SqlWmiManagement.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.SqlServer.WmiEnum.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.Data.OleDb.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.Management.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.Memory.Data.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x64\native\msalruntime.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+D:\PROJECTS\sql-backup-tool\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Back.FFE3D60E.Up2Date
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\SQL Backup Tool.genruntimeconfig.cache
+D:\PROJECTS\sql-backup-tool\obj\Debug\net8.0-windows\ref\SQL Backup Tool.dll
