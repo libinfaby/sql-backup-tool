@@ -30,10 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            panel3 = new Panel();
             lblNextBackupTime = new Label();
             label11 = new Label();
-            panel2 = new Panel();
             label14 = new Label();
             btnBackup = new Button();
             label10 = new Label();
@@ -75,10 +73,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Lavender;
-            panel1.Controls.Add(panel3);
             panel1.Controls.Add(lblNextBackupTime);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(btnBackup);
             panel1.Controls.Add(label10);
@@ -87,15 +83,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(912, 46);
             panel1.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = SystemColors.ControlDarkDark;
-            panel3.ForeColor = SystemColors.ControlDarkDark;
-            panel3.Location = new Point(483, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1, 40);
-            panel3.TabIndex = 32;
             // 
             // lblNextBackupTime
             // 
@@ -121,15 +108,6 @@
             label11.Size = new Size(189, 19);
             label11.TabIndex = 1;
             label11.Text = "Next Backup is scheduled at ";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ControlDarkDark;
-            panel2.ForeColor = SystemColors.ControlDarkDark;
-            panel2.Location = new Point(775, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1, 40);
-            panel2.TabIndex = 31;
             // 
             // label14
             // 
@@ -604,11 +582,9 @@
         private ListView lstBackupLocations;
         private ColumnHeader lstViewColHeader1;
         private ColumnHeader lstViewColHeader2;
-        private Panel panel2;
         private Label label7;
         private ComboBox cmbSqlServer;
         private Label label8;
         private ProgressBar progressBar1;
-        private Panel panel3;
     }
 }
