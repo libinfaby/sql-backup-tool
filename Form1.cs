@@ -14,6 +14,8 @@ using System.Text.Json.Serialization;
 using System.IO;
 using Microsoft.Identity.Client;
 using static SQL_Backup_Tool.Form1;
+using Microsoft.SqlServer.Management.Smo.Wmi;
+using System.IO.Compression;
 
 
 namespace SQL_Backup_Tool
@@ -47,8 +49,8 @@ namespace SQL_Backup_Tool
 
         public class BackupSettings
         {
-            public string Server { get; set; } = string.Empty;
-            public int Port { get; set; }
+            //public string Server { get; set; } = string.Empty;
+            //public int Port { get; set; }
             public List<string> Databases { get; set; } = new List<string>();
             public List<string> BackupTimes { get; set; } = new List<string>();
             public List<BackupLocation> BackupLocations { get; set; } = new List<BackupLocation>();
@@ -68,19 +70,19 @@ namespace SQL_Backup_Tool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //GetHostIPAddress();
-            //serverName = Dns.GetHostName();
-            //LoadSqlServerInstances();
-            //GetSQLPortNumber();
+            GetHostIPAddress();
+            serverName = Dns.GetHostName();
+            LoadSqlServerInstances();
+            GetSQLPortNumber();
 
             // Load settings
             BackupSettings settings = LoadSettings();
 
-            cmbSqlServer.Items.Clear();
-            cmbSqlServer.Items.Add(settings.Server);
-            cmbSqlServer.SelectedIndex = 0 ;
+            //cmbSqlServer.Items.Clear();
+            //cmbSqlServer.Items.Add(settings.Server);
+            //cmbSqlServer.SelectedIndex = 0 ;
 
-            txtPort.Text = settings.Port.ToString();
+            //txtPort.Text = settings.Port.ToString();
 
             int dbCount = settings.Databases.Count;
             int i = 0;
@@ -97,10 +99,17 @@ namespace SQL_Backup_Tool
                 }
             }
 
+            lblNextBackupTime.Text = "";
+
             // Populate ListBox with backup times
             lstBackupTimes.Items.Clear();
             foreach (string time in settings.BackupTimes)
             {
+                // Parse saved time and check if it's after the current time
+                if (DateTime.ParseExact(time, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture) > DateTime.Now)
+                {
+                    lblNextBackupTime.Text = time;
+                }
                 lstBackupTimes.Items.Add(time);
             }
 
@@ -113,12 +122,11 @@ namespace SQL_Backup_Tool
             }
 
             txtExpiry.Text = settings.Expiry.ToString();
-        }
 
-        private void cmbDatabases_MouseClick(object sender, MouseEventArgs e)
-        {
 
         }
+
+
 
         private void btnAddTime_MouseHover(object sender, EventArgs e)
         {
@@ -281,8 +289,8 @@ namespace SQL_Backup_Tool
             BackupSettings settings = new BackupSettings();
 
 
-            settings.Server = cmbSqlServer.Text;
-            settings.Port = Convert.ToInt32(txtPort.Text.Trim());
+            //settings.Server = cmbSqlServer.Text;
+            //settings.Port = Convert.ToInt32(txtPort.Text.Trim());
             settings.Databases = txtDatabases.Text.Split(',').ToList();
             // Collect times from ListBox
             foreach (string item in lstBackupTimes.Items)
@@ -444,11 +452,11 @@ namespace SQL_Backup_Tool
                     cmbDatabases.SelectedIndex = -1;
                     return;
                 }
-                
+
                 if (txtDatabases.Text.Trim() == "")
                 {
                     txtDatabases.Text = selectedDB;
-                } 
+                }
                 else
                 {
                     txtDatabases.Text = txtDatabases.Text + "," + selectedDB;
@@ -491,9 +499,104 @@ namespace SQL_Backup_Tool
 
                 txtPort.Text = staticPort;
             }
+            // need to check MSSQL16 or other version. code in chatGPT.
+        }
+
+        private void btnFolderBrowser1_MouseLeave(object sender, EventArgs e)
+        {
+            btnFolderBrowser1.Image = Properties.Resources.folder_dark;
+        }
+
+        private void btnFolderBrowser1_MouseEnter(object sender, EventArgs e)
+        {
+            btnFolderBrowser1.Image = Properties.Resources.folder_light;
+        }
+
+        private void btnAddLocation_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddLocation.Image = Properties.Resources.add_light;
+        }
+
+        private void btnAddLocation_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddLocation.Image = Properties.Resources.add_dark;
+        }
+
+        private void btnAddTime_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddTime.Image = Properties.Resources.add_light;
+        }
+
+        private void btnAddTime_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddTime.Image = Properties.Resources.add_dark;
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ensure backup folder exists
+                if (!Directory.Exists(backupFolderPath))
+                    Directory.CreateDirectory(backupFolderPath);
+
+                foreach (string databaseName in databaseNames)
+                {
+                    BackupDatabase(databaseName);
+                }
+
+                // Compress all backups into a single ZIP file
+                string zipFilePath = Path.Combine(backupFolderPath, "AllDatabasesBackup.zip");
+                CompressBackups(zipFilePath);
+
+                MessageBox.Show("Backup and compression completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
-        /// need to check MSSQL16 or other version. code in chatGPT
+        private void BackupDatabase(string databaseName)
+        {
+            // Set up the connection string
+            string connectionString = $"Server={serverInstance},{port};Database={databaseName};Trusted_Connection=True;";
+
+            // Create backup file path
+            string backupFilePath = Path.Combine(backupFolderPath, $"{databaseName}.bak");
+
+            // SQL command for backup
+            string backupQuery = $"BACKUP DATABASE [{databaseName}] TO DISK = '{backupFilePath}' WITH INIT, FORMAT";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(backupQuery, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            Console.WriteLine($"Backup for database '{databaseName}' completed successfully.");
+        }
+
+        private void CompressBackups(string zipFilePath)
+        {
+            // Ensure no previous zip file exists
+            if (File.Exists(zipFilePath))
+                File.Delete(zipFilePath);
+
+            // Create a zip file with all .bak files in the backup folder
+            using (ZipArchive zip = ZipFile.Open(zipFilePath, ZipArchiveMode.Create))
+            {
+                foreach (string filePath in Directory.GetFiles(backupFolderPath, "*.bak"))
+                {
+                    string fileName = Path.GetFileName(filePath);
+                    zip.CreateEntryFromFile(filePath, fileName);
+                }
+            }
+
+            Console.WriteLine("Compression of backups completed successfully.");
+        }
     }
 }

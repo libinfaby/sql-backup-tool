@@ -30,11 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            panel2 = new Panel();
+            panel3 = new Panel();
+            lblNextBackupTime = new Label();
             label11 = new Label();
-            label3 = new Label();
-            button8 = new Button();
+            panel2 = new Panel();
             label14 = new Label();
+            btnBackup = new Button();
             label10 = new Label();
             btnRefreshDB = new Button();
             txtPort = new TextBox();
@@ -69,14 +70,17 @@
             label8 = new Label();
             progressBar1 = new ProgressBar();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Lavender;
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(lblNextBackupTime);
+            panel1.Controls.Add(label11);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label14);
+            panel1.Controls.Add(btnBackup);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(btnRefreshDB);
             panel1.Location = new Point(12, 0);
@@ -84,56 +88,48 @@
             panel1.Size = new Size(912, 46);
             panel1.TabIndex = 0;
             // 
-            // panel2
+            // panel3
             // 
-            panel2.BackColor = Color.LightSteelBlue;
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(button8);
-            panel2.Location = new Point(468, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(444, 46);
-            panel2.TabIndex = 31;
+            panel3.BackColor = SystemColors.ControlDarkDark;
+            panel3.ForeColor = SystemColors.ControlDarkDark;
+            panel3.Location = new Point(483, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1, 40);
+            panel3.TabIndex = 32;
+            // 
+            // lblNextBackupTime
+            // 
+            lblNextBackupTime.Anchor = AnchorStyles.None;
+            lblNextBackupTime.AutoSize = true;
+            lblNextBackupTime.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblNextBackupTime.ForeColor = Color.FromArgb(0, 95, 184);
+            lblNextBackupTime.Location = new Point(672, 11);
+            lblNextBackupTime.Name = "lblNextBackupTime";
+            lblNextBackupTime.Size = new Size(97, 25);
+            lblNextBackupTime.TabIndex = 30;
+            lblNextBackupTime.Text = "00:00 AM";
+            lblNextBackupTime.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
-            label11.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label11.Anchor = AnchorStyles.None;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label11.ForeColor = Color.FromArgb(26, 26, 26);
-            label11.Location = new Point(33, 18);
+            label11.ForeColor = SystemColors.ControlDarkDark;
+            label11.Location = new Point(492, 15);
             label11.Name = "label11";
-            label11.Size = new Size(175, 19);
+            label11.Size = new Size(189, 19);
             label11.TabIndex = 1;
-            label11.Text = "Next Backup scheduled at ";
+            label11.Text = "Next Backup is scheduled at ";
             // 
-            // label3
+            // panel2
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.ForeColor = Color.FromArgb(26, 26, 26);
-            label3.Location = new Point(202, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 25);
-            label3.TabIndex = 30;
-            label3.Text = "12:00 AM";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(0, 95, 184);
-            button8.Cursor = Cursors.Hand;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.ForeColor = Color.FromArgb(248, 248, 248);
-            button8.Location = new Point(319, 11);
-            button8.Name = "button8";
-            button8.Size = new Size(114, 25);
-            button8.TabIndex = 27;
-            button8.Text = "Backup Now";
-            button8.UseVisualStyleBackColor = false;
+            panel2.BackColor = SystemColors.ControlDarkDark;
+            panel2.ForeColor = SystemColors.ControlDarkDark;
+            panel2.Location = new Point(775, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1, 40);
+            panel2.TabIndex = 31;
             // 
             // label14
             // 
@@ -145,6 +141,22 @@
             label14.Size = new Size(27, 13);
             label14.TabIndex = 29;
             label14.Text = "v1.0";
+            // 
+            // btnBackup
+            // 
+            btnBackup.BackColor = Color.FromArgb(0, 95, 184);
+            btnBackup.Cursor = Cursors.Hand;
+            btnBackup.FlatAppearance.BorderSize = 0;
+            btnBackup.FlatStyle = FlatStyle.Flat;
+            btnBackup.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackup.ForeColor = Color.FromArgb(248, 248, 248);
+            btnBackup.Location = new Point(787, 10);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(114, 25);
+            btnBackup.TabIndex = 27;
+            btnBackup.Text = "Backup Now";
+            btnBackup.UseVisualStyleBackColor = false;
+            btnBackup.Click += btnBackup_Click;
             // 
             // label10
             // 
@@ -165,18 +177,19 @@
             btnRefreshDB.FlatAppearance.BorderSize = 0;
             btnRefreshDB.FlatStyle = FlatStyle.Flat;
             btnRefreshDB.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btnRefreshDB.Location = new Point(309, 12);
+            btnRefreshDB.Location = new Point(205, 14);
             btnRefreshDB.Name = "btnRefreshDB";
             btnRefreshDB.Size = new Size(24, 25);
             btnRefreshDB.TabIndex = 41;
             btnRefreshDB.TextAlign = ContentAlignment.TopCenter;
             btnRefreshDB.UseVisualStyleBackColor = false;
+            btnRefreshDB.Visible = false;
             btnRefreshDB.Click += btnRefreshDB_Click;
             btnRefreshDB.MouseHover += btnRefreshDB_MouseHover;
             // 
             // txtPort
             // 
-            txtPort.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPort.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtPort.Location = new Point(287, 70);
             txtPort.Name = "txtPort";
             txtPort.Size = new Size(74, 25);
@@ -185,13 +198,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(26, 26, 26);
             label1.Location = new Point(26, 50);
             label1.Name = "label1";
-            label1.Size = new Size(47, 17);
+            label1.Size = new Size(103, 17);
             label1.TabIndex = 1;
-            label1.Text = "Server";
+            label1.Text = "Server\\Instance";
             // 
             // label2
             // 
@@ -308,13 +321,15 @@
             btnAddTime.FlatStyle = FlatStyle.Flat;
             btnAddTime.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddTime.ForeColor = Color.FromArgb(248, 248, 248);
-            btnAddTime.Image = Properties.Resources.add;
+            btnAddTime.Image = Properties.Resources.add_dark;
             btnAddTime.Location = new Point(764, 121);
             btnAddTime.Name = "btnAddTime";
             btnAddTime.Size = new Size(25, 25);
             btnAddTime.TabIndex = 24;
             btnAddTime.UseVisualStyleBackColor = false;
             btnAddTime.Click += btnAddTime_Click;
+            btnAddTime.MouseEnter += btnAddTime_MouseEnter;
+            btnAddTime.MouseLeave += btnAddTime_MouseLeave;
             btnAddTime.MouseHover += btnAddTime_MouseHover;
             // 
             // label12
@@ -333,7 +348,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label13.ForeColor = SystemColors.ControlDark;
-            label13.Location = new Point(26, 294);
+            label13.Location = new Point(26, 296);
             label13.Name = "label13";
             label13.Size = new Size(189, 13);
             label13.TabIndex = 28;
@@ -349,7 +364,6 @@
             cmbDatabases.Size = new Size(131, 25);
             cmbDatabases.TabIndex = 31;
             cmbDatabases.SelectedIndexChanged += cmbDatabases_SelectedIndexChanged;
-            cmbDatabases.MouseClick += cmbDatabases_MouseClick;
             // 
             // btnFolderBrowser1
             // 
@@ -358,13 +372,15 @@
             btnFolderBrowser1.FlatAppearance.BorderSize = 0;
             btnFolderBrowser1.FlatStyle = FlatStyle.Flat;
             btnFolderBrowser1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            btnFolderBrowser1.Image = Properties.Resources.folderblue;
+            btnFolderBrowser1.Image = Properties.Resources.folder_dark;
             btnFolderBrowser1.Location = new Point(310, 121);
             btnFolderBrowser1.Name = "btnFolderBrowser1";
             btnFolderBrowser1.Size = new Size(25, 25);
             btnFolderBrowser1.TabIndex = 32;
             btnFolderBrowser1.UseVisualStyleBackColor = false;
             btnFolderBrowser1.Click += btnFolderBrowser1_Click;
+            btnFolderBrowser1.MouseEnter += btnFolderBrowser1_MouseEnter;
+            btnFolderBrowser1.MouseLeave += btnFolderBrowser1_MouseLeave;
             // 
             // toolTip1
             // 
@@ -411,13 +427,15 @@
             btnAddLocation.FlatStyle = FlatStyle.Flat;
             btnAddLocation.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddLocation.ForeColor = Color.FromArgb(248, 248, 248);
-            btnAddLocation.Image = Properties.Resources.add;
+            btnAddLocation.Image = Properties.Resources.add_dark;
             btnAddLocation.Location = new Point(629, 120);
             btnAddLocation.Name = "btnAddLocation";
             btnAddLocation.Size = new Size(25, 25);
             btnAddLocation.TabIndex = 44;
             btnAddLocation.UseVisualStyleBackColor = false;
             btnAddLocation.Click += btnAddLocation_Click;
+            btnAddLocation.MouseEnter += btnAddLocation_MouseEnter;
+            btnAddLocation.MouseLeave += btnAddLocation_MouseLeave;
             // 
             // txtBackupRemark
             // 
@@ -476,7 +494,7 @@
             // 
             // cmbSqlServer
             // 
-            cmbSqlServer.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbSqlServer.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbSqlServer.FormattingEnabled = true;
             cmbSqlServer.Location = new Point(26, 70);
             cmbSqlServer.Name = "cmbSqlServer";
@@ -496,9 +514,9 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(799, 189);
+            progressBar1.Location = new Point(799, 36);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(114, 4);
+            progressBar1.Size = new Size(114, 2);
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.TabIndex = 53;
             progressBar1.Value = 40;
@@ -546,8 +564,6 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -571,11 +587,11 @@
         private Button btnAddTime;
         private Label label10;
         private Label label11;
-        private Button button8;
+        private Button btnBackup;
         private Label label14;
         private Label label12;
         private Label label13;
-        private Label label3;
+        private Label lblNextBackupTime;
         private ComboBox cmbDatabases;
         private ToolTip toolTip1;
         private ListBox lstBackupTimes;
@@ -593,5 +609,6 @@
         private ComboBox cmbSqlServer;
         private Label label8;
         private ProgressBar progressBar1;
+        private Panel panel3;
     }
 }
