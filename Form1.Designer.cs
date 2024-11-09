@@ -30,8 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            lblTomorrow = new Label();
             lblNextBackupTime = new Label();
-            label11 = new Label();
+            lblNextBackupMsg = new Label();
             label14 = new Label();
             btnBackup = new Button();
             label10 = new Label();
@@ -73,8 +74,9 @@
             // panel1
             // 
             panel1.BackColor = Color.Lavender;
+            panel1.Controls.Add(lblTomorrow);
             panel1.Controls.Add(lblNextBackupTime);
-            panel1.Controls.Add(label11);
+            panel1.Controls.Add(lblNextBackupMsg);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(btnBackup);
             panel1.Controls.Add(label10);
@@ -84,30 +86,44 @@
             panel1.Size = new Size(912, 46);
             panel1.TabIndex = 0;
             // 
+            // lblTomorrow
+            // 
+            lblTomorrow.Anchor = AnchorStyles.None;
+            lblTomorrow.AutoSize = true;
+            lblTomorrow.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblTomorrow.ForeColor = SystemColors.ControlDarkDark;
+            lblTomorrow.Location = new Point(727, 14);
+            lblTomorrow.Name = "lblTomorrow";
+            lblTomorrow.Size = new Size(43, 17);
+            lblTomorrow.TabIndex = 42;
+            lblTomorrow.Text = "today";
+            lblTomorrow.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // lblNextBackupTime
             // 
             lblNextBackupTime.Anchor = AnchorStyles.None;
             lblNextBackupTime.AutoSize = true;
-            lblNextBackupTime.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblNextBackupTime.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblNextBackupTime.ForeColor = Color.FromArgb(0, 95, 184);
-            lblNextBackupTime.Location = new Point(672, 11);
+            lblNextBackupTime.Location = new Point(664, 14);
             lblNextBackupTime.Name = "lblNextBackupTime";
-            lblNextBackupTime.Size = new Size(97, 25);
+            lblNextBackupTime.Size = new Size(64, 17);
             lblNextBackupTime.TabIndex = 30;
             lblNextBackupTime.Text = "00:00 AM";
             lblNextBackupTime.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // lblNextBackupMsg
             // 
-            label11.Anchor = AnchorStyles.None;
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label11.ForeColor = SystemColors.ControlDarkDark;
-            label11.Location = new Point(492, 15);
-            label11.Name = "label11";
-            label11.Size = new Size(189, 19);
-            label11.TabIndex = 1;
-            label11.Text = "Next Backup is scheduled at ";
+            lblNextBackupMsg.Anchor = AnchorStyles.None;
+            lblNextBackupMsg.AutoSize = true;
+            lblNextBackupMsg.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblNextBackupMsg.ForeColor = SystemColors.ControlDarkDark;
+            lblNextBackupMsg.Location = new Point(492, 14);
+            lblNextBackupMsg.Name = "lblNextBackupMsg";
+            lblNextBackupMsg.Size = new Size(173, 17);
+            lblNextBackupMsg.TabIndex = 1;
+            lblNextBackupMsg.Text = "Next Backup scheduled for";
+            lblNextBackupMsg.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -564,7 +580,7 @@
         private Button btnFolderBrowser1;
         private Button btnAddTime;
         private Label label10;
-        private Label label11;
+        private Label lblNextBackupMsg;
         private Button btnBackup;
         private Label label14;
         private Label label12;
@@ -586,5 +602,6 @@
         private ComboBox cmbSqlServer;
         private Label label8;
         private ProgressBar progressBar1;
+        private Label lblTomorrow;
     }
 }

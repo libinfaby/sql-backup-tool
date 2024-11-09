@@ -12,8 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\LIBIN\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\LIBIN\\.nuget\\packages"
+      "C:\\Users\\libin\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\libin\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
