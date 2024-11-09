@@ -108,15 +108,12 @@ namespace SQL_Backup_Tool
             lstBackupTimes.Items.Clear();
             foreach (string time in settings.BackupTimes)
             {
-                // Parse saved time and check if it's after the current time
-                if (DateTime.ParseExact(time, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture) > DateTime.Now)
-                {
-                    lblNextBackupTime.Text = time;
-                }
                 lstBackupTimes.Items.Add(time);
             }
 
             OrderBackupTimesInListBox();
+
+            FindNextBackupTime();
 
             // Populate ListView with backup locations
             lstBackupLocations.Items.Clear();
@@ -356,6 +353,8 @@ namespace SQL_Backup_Tool
 
             // Save updated settings
             SaveCurrentSettings();
+
+            FindNextBackupTime();
         }
 
         private void LoadSqlServerInstances()
@@ -632,6 +631,38 @@ namespace SQL_Backup_Tool
             {
                 lstBackupTimes.Items.Add(time);
             }
+        }
+
+        private void FindNextBackupTime()
+        {
+            lblNextBackupMsg.Visible = false;
+            lblTomorrow.Visible = false;
+            lblNextBackupTime.Text = "";
+
+            if (lstBackupTimes.Items.Count > 0)
+            {
+                lblNextBackupMsg.Visible = true;
+                lblTomorrow.Visible = true;
+
+                var backupTimes = lstBackupTimes.Items.Cast<string>().ToList();
+                foreach (var time in backupTimes)
+                {
+                    // Parse backup time and check if it's after the current time
+                    if (DateTime.ParseExact(time, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture) > DateTime.Now)
+                    {
+                        lblNextBackupTime.Text = time;
+                        return;
+                    }
+                }
+                // If listbox has items and no time is fetched, it means current time is greater than times in list
+                // Fetching next day's first time
+                if (lblNextBackupTime.Text == "")
+                {
+                    lblTomorrow.Text = "tomorrow";
+                    lblNextBackupTime.Text = lstBackupTimes.Items[0].ToString();
+                }
+            }
+
         }
     }
 }
